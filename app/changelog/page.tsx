@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Changelog() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [windowWidth, setWindowWidth] = useState(1024); // Default value for SSR
   
   const images = [
     { src: "/Webseite_124kmh.png", alt: "Speed Panels - 124 km/h Display", description: "Real-time speed monitoring at 124 km/h" },
@@ -29,6 +30,18 @@ export default function Changelog() {
   const goToImage = (index: number) => {
     setCurrentImageIndex(index);
   };
+
+  // Set window width after component mounts (client-side only)
+  useEffect(() => {
+    setWindowWidth(window.innerWidth);
+    
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-blue-100 to-purple-100">
@@ -106,7 +119,7 @@ export default function Changelog() {
           {/* Image Gallery - All Images Side by Side */}
           <div className="mt-8">
             <div className="grid grid-cols-6 gap-85 transition-transform duration-500" style={{
-              transform: `translateX(-${currentImageIndex * (window.innerWidth < 768 ? 80 : 40)}%)`
+              transform: `translateX(-${currentImageIndex * (windowWidth < 768 ? 80 : 40)}%)`
             }}>
               {images.map((image, index) => (
                 <div key={index} className="border-2 border-gray-200 rounded-2xl overflow-hidden bg-gray-50 shadow-lg aspect-square min-h-80">
