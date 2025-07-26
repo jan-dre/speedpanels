@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="300pt" height="300pt" viewBox="0 0 300 300">
+<defs>
+<clipPath id="clip_1">
+<path transform="matrix(1,0,0,-1,0,300)" d="M0 300H300V0H0Z"/>
+</clipPath>
+</defs>
+<g id="layer_1" data-name="Background">
+<path transform="matrix(1,0,0,-1,0,300)" d="M0 0H300V300H0Z" fill="#3570ff"/>
+<g clip-path="url(#clip_1)">
+<path transform="matrix(1,0,0,-1,106.2169,210.7952)" d="M0 0H-23.795C-30.103 0-35.217 5.114-35.217 11.422V45.687C-35.217 51.995-30.103 57.108-23.795 57.108H0C6.308 57.108 11.422 51.995 11.422 45.687V11.422C11.422 5.114 6.308 0 0 0" fill="#ffffff"/>
+<path transform="matrix(1,0,0,-1,161.8976,210.7952)" d="M0 0H-23.795C-30.103 0-35.217 5.114-35.217 11.422V78.048C-35.217 84.356-30.103 89.47-23.795 89.47H0C6.308 89.47 11.422 84.356 11.422 78.048V11.422C11.422 5.114 6.308 0 0 0" fill="#ffffff"/>
+<path transform="matrix(1,0,0,-1,217.5783,210.7952)" d="M0 0H-23.795C-30.103 0-35.217 5.114-35.217 11.422V115.169C-35.217 121.477-30.103 126.59-23.795 126.59H0C6.308 126.59 11.422 121.477 11.422 115.169V11.422C11.422 5.114 6.308 0 0 0" fill="#ffffff"/>
+</g>
+<g id="layer_1" data-name="Ebene 1">
+</g>
+</g>
+</svg>

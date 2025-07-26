@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 300 300">
+  <!-- Generator: Adobe Illustrator 29.6.1, SVG Export Plug-In . SVG Version: 2.1.1 Build 9)  -->
+  <defs>
+    <style>
+      .st0 {
+        stroke-linecap: round;
+      }
+
+      .st0, .st1, .st2, .st3, .st4, .st5, .st6, .st7 {
+        stroke: #fff;
+        stroke-miterlimit: 10;
+      }
+
+      .st0, .st1, .st2, .st3, .st5, .st6 {
+        fill: none;
+      }
+
+      .st0, .st1, .st2, .st8, .st9, .st10, .st11, .st4, .st12, .st5, .st13, .st6, .st14, .st15, .st16, .st17 {
+        display: none;
+      }
+
+      .st0, .st6 {
+        stroke-width: 13px;
+      }
+
+      .st18 {
+        fill: #fff1b4;
+      }
+
+      .st1 {
+        stroke-width: 12px;
+      }
+
+      .st2 {
+        stroke-width: 16px;
+      }
+
+      .st3 {
+        stroke-width: 12.7px;
+      }
+
+      .st8 {
+        font-family: SFProDisplay-Medium, 'SF Pro Display';
+        font-size: 110.94px;
+        font-weight: 500;
+      }
+
+      .st8, .st13 {
+        fill: #00db00;
+      }
+
+      .st19, .st11 {
+        fill: #fff;
+      }
+
+      .st9, .st4 {
+        fill: #7500b4;
+      }
+
+      .st10 {
+        fill: #078a00;
+      }
+
+      .st4, .st5 {
+        stroke-width: 12.7px;
+      }
+
+      .st12 {
+        fill: #353aff;
+      }
+
+      .st20 {
+        fill: #06e900;
+      }
+
+      .st21 {
+        fill: #ff180a;
+      }
+
+      .st22, .st7 {
+        fill: #1a1a1a;
+      }
+
+      .st14 {
+        fill: #ffa300;
+      }
+
+      .st15 {
+        fill: #355cff;
+      }
+
+      .st7 {
+        stroke-width: 14.56px;
+      }
+
+      .st17 {
+        fill: #c1272d;
+      }
+    </style>
+  </defs>
+  <g id="Background">
+    <g class="st16">
+      <rect class="st22" x="150" width="150" height="300"/>
+    </g>
+    <g class="st16">
+      <rect class="st18" y="0" width="150" height="300"/>
+    </g>
+    <rect class="st13" y="0" width="300" height="300"/>
+    <rect class="st14" width="300" height="300"/>
+    <rect class="st15" width="300" height="300"/>
+    <g class="st16">
+      <path class="st19" d="M113.16,118.56c-6.43,13.74,20.24,37.49,36.84,51.23,16.6-13.74,43.27-37.49,36.84-51.23"/>
+      <path class="st19" d="M150,220.54l-24.93-20.63c-21.79-18.04-67.14-55.58-47.32-97.92,9.16-19.55,32.43-27.97,51.98-18.83,9.86,4.62,16.89,12.82,20.26,22.33,3.37-9.51,10.41-17.72,20.27-22.33,19.55-9.15,42.82-.72,51.98,18.83,19.82,42.34-25.52,79.88-47.32,97.92l-24.93,20.63Z"/>
+    </g>
+    <ellipse class="st13" cx="148.92" cy="164.07" rx="3.81" ry="4.28"/>
+    <g class="st16">
+      <rect class="st21" x="150" width="150" height="300"/>
+    </g>
+    <g class="st16">
+      <rect class="st20" x="0" y="0" width="150" height="300"/>
+    </g>
+    <g class="st16">
+      <path class="st19" d="M173.36,190.05h-46.29l-9.93,38.09h-30.65l46.73-155.71h36.26l46.73,155.71h-33.13l-9.71-38.09ZM167.21,166.09l-16.19-63.13h-1.4l-16.4,63.13h33.99Z"/>
+    </g>
+    <rect class="st12" y="0" width="300" height="300"/>
+    <rect class="st10" x="0" y="0" width="300" height="300"/>
+    <rect class="st9" y="0" width="300" height="300"/>
+    <rect class="st17" width="300" height="300"/>
+    <rect class="st22" width="300" height="300"/>
+    <rect class="st7" x="136.35" y="104.92" width="36.73" height="81.85" rx="16.82" ry="16.82" transform="translate(148.45 -66.68) rotate(45)"/>
+    <rect class="st7" x="175.06" y="171.5" width="40.67" height="32.74" rx="6.38" ry="6.38" transform="translate(190.07 -83.14) rotate(45)"/>
+    <rect class="st7" x="91.83" y="88.27" width="40.67" height="32.74" rx="6.29" ry="6.29" transform="translate(106.85 -48.66) rotate(45)"/>
+    <path class="st7" d="M127.4,119.88l13.65,13.65"/>
+    <path class="st7" d="M164.32,156.8l13.65,13.65"/>
+    <path class="st7" d="M116.63,183.93c-9.11-9.11-22.82-10.16-30.63-2.36l32.98,32.98c7.81-7.81,6.75-21.52-2.36-30.63Z"/>
+  </g>
+  <g id="Ebene_1">
+    <circle class="st6" cx="150" cy="150" r="32.01"/>
+    <circle class="st6" cx="150" cy="150" r="66.31"/>
+    <path class="st0" d="M65.07,150h169.87"/>
+    <path class="st0" d="M150,65.07v169.87"/>
+    <rect class="st5" x="115.08" y="112.41" width="75.18" height="155.69" rx="23.5" ry="23.5" transform="translate(342.92 37.59) rotate(90)"/>
+    <rect class="st4" x="74.82" y="72.15" width="75.18" height="155.69" rx="23.5" ry="23.5"/>
+    <g class="st16">
+      <g>
+        <path class="st3" d="M188.11,73.11c17.72,2.47,27.36,10.35,30.42,30.56"/>
+        <polygon class="st19" points="191.97 54.2 189.38 92.69 171.44 72.16 191.97 54.2"/>
+        <polygon class="st19" points="237.4 99.65 198.93 102.55 219.61 120.33 237.4 99.65"/>
+      </g>
+    </g>
+    <rect class="st11" x="99.47" y="125.23" width="101.05" height="92.17" rx="11.18" ry="11.18"/>
+    <rect class="st1" x="120.42" y="77.01" width="59.17" height="133.55" rx="28.31" ry="28.31"/>
+    <rect class="st11" x="67" y="154" width="49" height="60" rx="12" ry="12"/>
+    <rect class="st11" x="125.5" y="120" width="49" height="94" rx="12" ry="12"/>
+    <rect class="st11" x="184" y="81" width="49" height="133" rx="12" ry="12"/>
+    <circle class="st11" cx="149.87" cy="149.62" r="79.62"/>
+    <text class="st8" transform="translate(115.79 189.77)"><tspan x="0" y="0">$</tspan></text>
+    <path class="st11" d="M157.5,74.48l16.36,50.37h52.96c7.64,0,10.82,9.78,4.64,14.27l-42.84,31.13,16.36,50.37c2.36,7.27-5.96,13.31-12.14,8.82l-42.84-31.13-42.84,31.13c-6.18,4.49-14.5-1.55-12.14-8.82l16.36-50.37-42.84-31.13c-6.18-4.49-3.01-14.27,4.64-14.27h52.96s16.36-50.37,16.36-50.37c2.36-7.27,12.64-7.27,15.01,0Z"/>
+    <rect class="st2" x="84.68" y="107.36" width="129.64" height="129.64" rx="33.86" ry="33.86"/>
+    <rect class="st14" x="131.54" y="98.17" width="35.04" height="21.02"/>
+    <g class="st16">
+      <path class="st19" d="M157.46,145.47V57c0-10.81-16.8-10.83-16.8,0v88.47c0,10.81,16.8,10.83,16.8,0h0Z"/>
+    </g>
+    <g class="st16">
+      <path class="st19" d="M175.59,71.52c-6.72-7.01-13.43-14.01-20.15-21.02-7.5-7.82-19.36,4.07-11.88,11.88,6.72,7.01,13.43,14.01,20.15,21.02,7.5,7.82,19.36-4.07,11.88-11.88h0Z"/>
+    </g>
+    <g class="st16">
+      <path class="st19" d="M134.42,83.4c6.72-7.01,13.43-14.01,20.15-21.02,7.48-7.81-4.38-19.7-11.88-11.88-6.72,7.01-13.43,14.01-20.15,21.02-7.48,7.81,4.38,19.7,11.88,11.88h0Z"/>
+    </g>
+  </g>
+</svg>
