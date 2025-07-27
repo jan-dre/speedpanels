@@ -125,7 +125,7 @@ export default function Home() {
               <div className="relative rounded-xl h-64 overflow-hidden">
                 <video 
                   ref={videoRef}
-                  className={`w-full h-full object-cover ${videoEnded ? 'hidden' : ''}`}
+                  className={`w-full h-full object-contain ${videoEnded ? 'hidden' : ''}`}
                   muted
                   playsInline
                   onEnded={handleVideoEnded}
@@ -161,7 +161,7 @@ export default function Home() {
             </div>
             <div className="bg-white rounded-2xl shadow-xl p-4 transform hover:scale-105 transition-transform duration-200">
               <div className="rounded-xl h-64 flex items-center justify-center overflow-hidden">
-                <img src="/Screenshot.png" alt="Speed Panels App Screenshot" className="w-full h-full object-cover" />
+                <img src="/Screenshot.png" alt="Speed Panels App Screenshot" className="w-full h-full object-contain" />
               </div>
               <p className="text-gray-600 mt-4 text-sm">Multi-page interface with customizable layouts</p>
             </div>
