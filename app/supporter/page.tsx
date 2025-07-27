@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 interface FlyingEmoji {
   id: number;
@@ -14,13 +14,19 @@ interface FlyingEmoji {
 
 export default function Supporter() {
   const [flyingEmojis, setFlyingEmojis] = useState<FlyingEmoji[]>([]);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Check if mobile on component mount
+  useEffect(() => {
+    setIsMobile(window.innerWidth <= 768);
+  }, []);
 
   const triggerHeartAnimation = () => {
     // Check if mobile device
-    const isMobile = window.innerWidth <= 768;
+    const mobileCheck = window.innerWidth <= 768;
     
     // Prevent rapid clicking only on mobile
-    if (isMobile && flyingEmojis.length > 20) return;
+    if (mobileCheck && flyingEmojis.length > 20) return;
     
     const transportEmojis = [
       'Airplane', 'Rocket_2', 'Propeller Airplane_Blue,Grey,Shadow',
@@ -33,12 +39,12 @@ export default function Supporter() {
     const newEmojis: FlyingEmoji[] = [];
     
     // Reduce number of emojis on mobile for better performance
-    const emojiCount = isMobile ? 6 : 10;
+    const emojiCount = mobileCheck ? 6 : 10;
     
     for (let i = 0; i < emojiCount; i++) {
       const randomEmoji = transportEmojis[Math.floor(Math.random() * transportEmojis.length)];
       const angle = Math.random() * Math.PI * 2;
-      const distance = isMobile ? 300 : 500; // Shorter distance on mobile
+      const distance = mobileCheck ? 300 : 500; // Shorter distance on mobile
       const startX = 0; // Start from center
       const startY = 0; // Start from center
       const endX = Math.cos(angle) * distance;
@@ -70,8 +76,8 @@ export default function Supporter() {
     // Add all emojis at once
     setFlyingEmojis(prev => [...prev, ...newEmojis]);
     
-    // Remove all emojis after animation (shorter on mobile)
-    const animationDuration = isMobile ? 1500 : 2000;
+    // Remove all emojis after animation (faster on mobile)
+    const animationDuration = mobileCheck ? 1000 : 2000;
     setTimeout(() => {
       setFlyingEmojis(prev => prev.filter(e => !newEmojis.some(ne => ne.id === e.id)));
     }, animationDuration);
@@ -322,7 +328,7 @@ export default function Supporter() {
                       transition: 'all 2s ease-out',
                       opacity: 1,
                       zIndex: 10,
-                      animation: 'flyOut 2s ease-out forwards',
+                      animation: isMobile ? 'flyOut 1s ease-out forwards' : 'flyOut 2s ease-out forwards',
                       '--end-x': `${emoji.endX}px`,
                       '--end-y': `${emoji.endY}px`,
                       '--rotation': `${emoji.rotation}deg`
