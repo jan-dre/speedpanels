@@ -77,7 +77,7 @@ export default function Supporter() {
     setFlyingEmojis(prev => [...prev, ...newEmojis]);
     
     // Remove all emojis after animation (faster on mobile)
-    const animationDuration = mobileCheck ? 1000 : 2000;
+    const animationDuration = mobileCheck ? 1300 : 2000;
     setTimeout(() => {
       setFlyingEmojis(prev => prev.filter(e => !newEmojis.some(ne => ne.id === e.id)));
     }, animationDuration);
@@ -328,7 +328,7 @@ export default function Supporter() {
                       transition: 'all 2s ease-out',
                       opacity: 1,
                       zIndex: 10,
-                      animation: isMobile ? 'flyOut 1s ease-out forwards' : 'flyOut 2s ease-out forwards',
+                      animation: isMobile ? 'flyOut 1.3s ease-out forwards' : 'flyOut 2s ease-out forwards',
                       '--end-x': `${emoji.endX}px`,
                       '--end-y': `${emoji.endY}px`,
                       '--rotation': `${emoji.rotation}deg`

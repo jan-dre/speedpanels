@@ -39,6 +39,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-gradient-to-r from-blue-100 to-purple-100`}
+        suppressHydrationWarning={true}
       >
         {children}
         <Footer />
