@@ -23,14 +23,10 @@ export const metadata: Metadata = {
     maximumScale: 1,
     userScalable: false,
     viewportFit: 'cover',
-    minimumScale: 1,
   },
   other: {
     'apple-mobile-web-app-status-bar-style': 'default',
     'theme-color': '#f8fafc',
-    'viewport-fit': 'cover',
-    'apple-mobile-web-app-capable': 'yes',
-    'format-detection': 'telephone=no',
   },
 };
 
