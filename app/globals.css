@@ -129,10 +129,26 @@ html, body {
   }
 }
 
+/* Ensure consistent background for all orientations */
+html {
+  background: linear-gradient(to right, #dbeafe, #e9d5ff);
+}
+
+body {
+  background: linear-gradient(to right, #dbeafe, #e9d5ff);
+  min-height: 100vh;
+}
+
 /* Safe area support for iPhone */
 .safe-area {
   padding-left: env(safe-area-inset-left);
   padding-right: env(safe-area-inset-right);
   padding-top: env(safe-area-inset-top);
   padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Ensure all main containers have the same background */
+#__next, .min-h-screen {
+  background: linear-gradient(to right, #dbeafe, #e9d5ff);
+  min-height: 100vh;
 }
