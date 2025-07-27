@@ -16,6 +16,12 @@ export default function Supporter() {
   const [flyingEmojis, setFlyingEmojis] = useState<FlyingEmoji[]>([]);
 
   const triggerHeartAnimation = () => {
+    // Check if mobile device
+    const isMobile = window.innerWidth <= 768;
+    
+    // Prevent rapid clicking only on mobile
+    if (isMobile && flyingEmojis.length > 20) return;
+    
     const transportEmojis = [
       'Airplane', 'Rocket_2', 'Propeller Airplane_Blue,Grey,Shadow',
       'Car 3 Door', 'Car 5 Door', 'Car Bus', 'Car Delivery Truck',
@@ -26,10 +32,13 @@ export default function Supporter() {
     ];
     const newEmojis: FlyingEmoji[] = [];
     
-    for (let i = 0; i < 10; i++) {
+    // Reduce number of emojis on mobile for better performance
+    const emojiCount = isMobile ? 6 : 10;
+    
+    for (let i = 0; i < emojiCount; i++) {
       const randomEmoji = transportEmojis[Math.floor(Math.random() * transportEmojis.length)];
       const angle = Math.random() * Math.PI * 2;
-      const distance = 500; // Fixed distance for consistent speed
+      const distance = isMobile ? 300 : 500; // Shorter distance on mobile
       const startX = 0; // Start from center
       const startY = 0; // Start from center
       const endX = Math.cos(angle) * distance;
@@ -46,7 +55,7 @@ export default function Supporter() {
       }
       
       const emoji: FlyingEmoji = {
-        id: Date.now() + i,
+        id: Date.now() + i + Math.random(), // More unique IDs
         src: `/Transport emojis/${randomEmoji}.svg`,
         startX,
         startY,
@@ -61,10 +70,11 @@ export default function Supporter() {
     // Add all emojis at once
     setFlyingEmojis(prev => [...prev, ...newEmojis]);
     
-    // Remove all emojis after animation
+    // Remove all emojis after animation (shorter on mobile)
+    const animationDuration = isMobile ? 1500 : 2000;
     setTimeout(() => {
       setFlyingEmojis(prev => prev.filter(e => !newEmojis.some(ne => ne.id === e.id)));
-    }, 2000);
+    }, animationDuration);
   };
 
   return (
@@ -326,13 +336,15 @@ export default function Supporter() {
               {/* Heart Button */}
               <button 
                 id="heart-button"
-                className="inline-block transform transition-transform duration-200 hover:scale-110 active:scale-95"
+                className="inline-block transform transition-transform duration-200 hover:scale-110 active:scale-95 touch-manipulation"
                 onClick={triggerHeartAnimation}
+                style={{ touchAction: 'manipulation' }}
               >
                 <img 
                   src="/Heart.svg" 
                   alt="Heart" 
-                  className="w-32 h-32 mx-auto"
+                  className="w-32 h-32 mx-auto select-none"
+                  draggable="false"
                 />
               </button>
               

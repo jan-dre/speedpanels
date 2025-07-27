@@ -78,6 +78,20 @@ body {
   }
 }
 
+/* Mobile optimized flyOut animation */
+@media (max-width: 768px) {
+  @keyframes flyOut {
+    0% {
+      transform: translate(-50%, -50%) rotate(var(--rotation, 0deg)) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(calc(-50% + var(--end-x, 200px)), calc(-50% + var(--end-y, 200px))) rotate(var(--rotation, 0deg)) scale(0.6);
+      opacity: 0;
+    }
+  }
+}
+
 .text-gradient {
   background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57, #ff9ff3);
   -webkit-background-clip: text;
