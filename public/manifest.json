@@ -1,0 +1,21 @@
+{
+  "name": "Speed Panels",
+  "short_name": "Speed Panels",
+  "description": "Real-time speed monitoring app",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3b82f6",
+  "icons": [
+    {
+      "src": "/AppIconLight.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/AppIconLight.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+} 
