@@ -116,43 +116,63 @@ export default function Changelog() {
             </p>
           </div>
 
-          {/* Image Gallery - All Images Side by Side */}
+          {/* Image Gallery - Responsive Design */}
           <div className="mt-8">
-            <div className="grid grid-cols-6 gap-85 transition-transform duration-500" style={{
-              transform: `translateX(-${currentImageIndex * (windowWidth < 768 ? 80 : 40)}%)`
-            }}>
-              {images.map((image, index) => (
-                <div key={index} className="border-2 border-gray-200 rounded-2xl overflow-hidden bg-gray-50 shadow-lg aspect-square min-h-80">
-                  <img 
-                    src={image.src}
-                    alt={image.alt}
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-              ))}
-            </div>
-            
-            {/* Navigation Arrows */}
-            <div className="flex justify-start items-center space-x-8 mt-8 ml-12">
-              <button 
-                onClick={prevImage}
-                className="bg-white hover:bg-gray-100 text-gray-800 rounded-full p-4 shadow-lg transition-all duration-200 hover:scale-110 border border-gray-200"
-                aria-label="Previous image"
-              >
-                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                </svg>
-              </button>
+            {/* Desktop Version - Original with Navigation */}
+            <div className="hidden md:block">
+              <div className="grid grid-cols-6 gap-85 transition-transform duration-500" style={{
+                transform: `translateX(-${currentImageIndex * (windowWidth < 768 ? 80 : 40)}%)`
+              }}>
+                {images.map((image, index) => (
+                  <div key={index} className="border-2 border-gray-200 rounded-2xl overflow-hidden bg-gray-50 shadow-lg aspect-square min-h-80">
+                    <img 
+                      src={image.src}
+                      alt={image.alt}
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                ))}
+              </div>
               
-              <button 
-                onClick={nextImage}
-                className="bg-white hover:bg-gray-100 text-gray-800 rounded-full p-4 shadow-lg transition-all duration-200 hover:scale-110 border border-gray-200"
-                aria-label="Next image"
-              >
-                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
+              {/* Desktop Navigation Arrows */}
+              <div className="flex justify-start items-center space-x-8 mt-8 ml-12">
+                <button 
+                  onClick={prevImage}
+                  className="bg-white hover:bg-gray-100 text-gray-800 rounded-full p-4 shadow-lg transition-all duration-200 hover:scale-110 border border-gray-200"
+                  aria-label="Previous image"
+                >
+                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+                
+                <button 
+                  onClick={nextImage}
+                  className="bg-white hover:bg-gray-100 text-gray-800 rounded-full p-4 shadow-lg transition-all duration-200 hover:scale-110 border border-gray-200"
+                  aria-label="Next image"
+                >
+                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            {/* Mobile Version - Touch Scroll */}
+            <div className="md:hidden">
+              <div className="overflow-x-auto scrollbar-hide bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-4">
+                <div className="flex space-x-4 min-w-max">
+                  {images.map((image, index) => (
+                    <div key={index} className="flex-shrink-0 border-2 border-gray-200 rounded-2xl overflow-hidden bg-white shadow-lg" style={{ width: '280px', height: '280px' }}>
+                      <img 
+                        src={image.src}
+                        alt={image.alt}
+                        className="w-full h-full object-contain p-2"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
