@@ -129,6 +129,18 @@ html, body {
   }
 }
 
+/* iPhone specific landscape fix */
+@media only screen and (max-device-width: 926px) and (orientation: landscape) {
+  html, body, #__next {
+    width: 100vw !important;
+    height: 100vh !important;
+    overflow-x: hidden !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: linear-gradient(to right, #dbeafe, #e9d5ff) !important;
+  }
+}
+
 /* Ensure consistent background for all orientations */
 html {
   background: linear-gradient(to right, #dbeafe, #e9d5ff);
@@ -137,6 +149,11 @@ html {
 body {
   background: linear-gradient(to right, #dbeafe, #e9d5ff);
   min-height: 100vh;
+}
+
+/* Force background on all possible containers */
+html, body, #__next, div[data-nextjs-page], .min-h-screen {
+  background: linear-gradient(to right, #dbeafe, #e9d5ff) !important;
 }
 
 /* Safe area support for iPhone */
