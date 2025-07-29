@@ -208,7 +208,7 @@ export default function Home() {
                 <img src="/Icons/ruler.svg" alt="Ruler" className="w-16 h-16 rounded-xl" />
               </div>
               <h3 className="text-xl font-semibold mb-3 text-white">Multiple Speed Units</h3>
-              <p className="text-gray-300">Choose from km/h, mph, knots, m/s, and Mach. All data is displayed locally on your device for privacy and performance.</p>
+              <p className="text-gray-300">Choose from km/h, mph, knots, m/s, and Mach. Switch between units instantly to match your preferred measurement system.</p>
             </div>
             
             <div className="text-center p-8 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105 group">

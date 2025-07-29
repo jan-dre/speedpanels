@@ -105,10 +105,10 @@ export default function Changelog() {
               <li>Real-time GPS speed monitoring</li>
               <li>Multiple speed units: km/h, mph, knots, m/s, Mach</li>
               <li>Three configurable display pages with swipe navigation</li>
-              <li>Altitude measurement and climb rate calculation</li>
+              <li>Altitude measurement in meters and feet with climb rate calculation in m/s, ft/min, km/h, and mph</li>
               <li>Automatic GPS route recording with GPX export</li>
               <li>Interactive map view with color-coded speed segments</li>
-              <li>Performance statistics with maximum speed and distance tracking</li>
+              <li>Performance statistics with maximum speed and distance tracking in kilometers, miles, and nautical miles</li>
               <li>Privacy-first design with all data processed locally on your device</li>
             </ul>
             <p className="text-gray-700 mb-4">

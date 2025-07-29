@@ -368,7 +368,7 @@ export default function Supporter() {
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">What I Do</h3>
                 <p className="text-gray-700">
                   I focus on creating an intuitive and useful app that solves real problems. Speed Panels is designed 
-                  to help you monitor your speed with precision and style, whether you're driving, cycling, 
+                  to help you monitor your speed with style and ease, whether you're driving, cycling, 
                   or just curious about your velocity.
                 </p>
               </div>
