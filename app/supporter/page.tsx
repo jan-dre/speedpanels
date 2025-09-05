@@ -138,16 +138,42 @@ export default function Supporter() {
               <div className="flex-1 text-center md:text-left">
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">Hi! I'm Jan</h2>
                 <p className="text-gray-700 mb-6">
-                  I'm passionate about building and creating things, and I love turning ideas into reality. I'm fascinated by speed – as a hobby, I enjoy cycling, love airplanes, and high-speed trains. I'm always curious about how fast I'm going and where I'm traveling through. That's why I built Speed Panels.
+                  Speed Panels is created by a single developer (me). I'm a speed enthusiast, fascinated by cars, airplanes, and high-speed trains. I'm always curious about how fast I'm going – and where. That's why I built Speed Panels.
                 </p>
                 <p className="text-gray-700 mb-6">
-                  Building apps takes a lot of time and resources. While many developers rely on ads for income, which I find far from user-friendly, I wanted to do things differently with Speed Panels.
+                  Building and maintaining apps takes a lot of time and resources. Many developers rely on ads for income, but I wanted to do things differently. Speed Panels offers a clean, ad-free design for maximum enjoyment and usability.
                 </p>
                 <p className="text-gray-700 mb-6">
-                  If you enjoy using Speed Panels and want to support its continued development, please consider donating whatever you think it's worth. Your support helps keep Speed Panels updated, running smoothly, and growing.
+                  If you enjoy using Speed Panels and want to support its continued development, please consider donating what you think it's worth. Your support helps keep Speed Panels updated, running smoothly, and growing with new features.
+                </p>
+                <p className="text-gray-700 mb-6">
+                  You can donate directly in the app under:<br />
+                  <strong className="flex items-center gap-1">
+                    <svg 
+                      className="w-5 h-5 text-gray-700" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      viewBox="0 0 24 24" 
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path 
+                        strokeLinecap="round" 
+                        strokeLinejoin="round" 
+                        strokeWidth="2" 
+                        d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+                      />
+                      <path 
+                        strokeLinecap="round" 
+                        strokeLinejoin="round" 
+                        strokeWidth="2" 
+                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                      />
+                    </svg>
+                    Panel Settings → Become a Supporter → Donate
+                  </strong>
                 </p>
                 <p className="text-gray-700">
-                  Tips are greatly appreciated, but supporters unlock premium features. Thanks for helping Speed Panels thrive!
+                  Want to unlock premium features? Become a Supporter — every level of support helps Speed Panels grow. Thanks for helping Speed Panels thrive!
                 </p>
               </div>
             </div>
@@ -266,7 +292,7 @@ export default function Supporter() {
                     <circle cx="10" cy="10" r="8" fill="currentColor"/>
                     <path d="M7 10l2 2 4-4" stroke="white" strokeWidth="2" fill="none"/>
                   </svg>
-                  Experimental Features
+                  Experimental Features (features may change or be removed)
                 </li>
                 <li className="flex items-center">
                   <svg className="w-5 h-5 text-green-400 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
@@ -300,7 +326,7 @@ export default function Supporter() {
                     <circle cx="10" cy="10" r="8" fill="currentColor"/>
                     <path d="M7 10l2 2 4-4" stroke="white" strokeWidth="2" fill="none"/>
                   </svg>
-                  Exclusive app icons
+                  Premium app icons
                 </li>
               </ul>
             </div>

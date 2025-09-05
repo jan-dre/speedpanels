@@ -82,7 +82,7 @@ export default function Changelog() {
           {/* Version 1.0.0 - Launch */}
           <div className="bg-white rounded-2xl shadow-xl p-8 mb-16">
             <div className="flex items-center mb-4">
-              <span className="text-sm text-gray-600 font-medium">01.08.2025 • Speed Panels 1.0</span>
+              <span className="text-sm text-gray-600 font-medium">06.09.2025 • Speed Panels 1.0</span>
             </div>
             <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
               <img src="/Transport emojis/Rocket_2.svg" alt="Rocket" className="w-7 h-7 drop-shadow-sm" />

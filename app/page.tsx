@@ -108,7 +108,9 @@ export default function Home() {
           {/* Download Button */}
           <div id="download" className="mb-16">
             <a 
-              href="#app-store" 
+              href="https://apps.apple.com/app/speedometer-speed-panels/id6751212000" 
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-block hover:scale-105 transition-transform duration-200"
             >
               <img 
@@ -270,7 +272,9 @@ export default function Home() {
           {/* Second Download Button */}
           <div className="text-center mt-4">
             <a 
-              href="#app-store" 
+              href="https://apps.apple.com/app/speedometer-speed-panels/id6751212000" 
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-block hover:scale-105 transition-transform duration-200"
             >
               <img 

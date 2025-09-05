@@ -21,7 +21,7 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-4">App</h3>
             <ul className="space-y-2">
-              <li><a href="#app-store" className="text-gray-300 hover:text-white transition-colors">App Store</a></li>
+              <li><a href="https://apps.apple.com/app/speedometer-speed-panels/id6751212000" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors">App Store</a></li>
               <li><a href="/changelog" className="text-gray-300 hover:text-white transition-colors">Changelog</a></li>
             </ul>
           </div>

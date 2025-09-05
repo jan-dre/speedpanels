@@ -17,6 +17,16 @@ export const metadata: Metadata = {
   title: "Speed Panels - Real-time Speed Monitoring",
   description: "Monitor your speed in real-time with Speed Panels. Track GPS speed, altitude, and performance with customizable displays and privacy-first design.",
   manifest: '/manifest.json',
+  icons: {
+    icon: [
+      { url: '/AppIconLight.png', sizes: '32x32', type: 'image/png' },
+      { url: '/AppIconLight.png', sizes: '16x16', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/AppIconLight.png', sizes: '180x180', type: 'image/png' },
+    ],
+    shortcut: '/AppIconLight.png',
+  },
   viewport: {
     width: 'device-width',
     initialScale: 1,

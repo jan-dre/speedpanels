@@ -35,7 +35,7 @@ export default function Terms() {
             Terms of Service
           </h1>
           <p className="text-lg text-gray-700 mb-12 text-center">
-            Last updated: July 13, 2025
+            Last updated: September 5, 2025
           </p>
 
           {/* Terms Card */}
@@ -45,133 +45,108 @@ export default function Terms() {
               <div>
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">1. Agreement</h2>
                 <p className="text-gray-700">
-                  By downloading, installing, or using the iOS application Speed Panels ("App"), you agree to be bound by these Terms of Service.
-                </p>
-                <p className="text-gray-700 mt-4">
-                  If you do not agree, do not use the App.
+                  By downloading, installing, or using the iOS app "Speedometer: Speed Panels" (short: "Speed Panels", the "App"), you agree to these Terms. If you do not agree, do not use the App.
                 </p>
               </div>
 
               <div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">2. Ownership and Provider</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">2. Provider & contact</h2>
                 <p className="text-gray-700">
-                  The App is developed and maintained by Jan Drebes, sole proprietor based in Switzerland.
-                </p>
-                <p className="text-gray-700">
-                  Responsible for content and data processing:<br />
-                  Jan Drebes<br />
-                  Email: <a href="mailto:support@speedpanels.com" className="text-blue-600 hover:text-blue-800">support@speedpanels.com</a>
+                  The App ("Speedometer: Speed Panels", short: "Speed Panels") is developed and provided by Jan Drebes, sole proprietor in Switzerland. Contact: support@speedpanels.com (postal address: see Imprint).
                 </p>
               </div>
 
               <div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">3. App Purpose</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">3. Purpose & acceptable use (safety first)</h2>
                 <p className="text-gray-700 mb-4">
-                  Speed Panels is a recreational speed monitoring tool using sensor data (GPS, gyroscope, barometer, etc.). It is designed for non-professional, non-certified, and non-critical use only.
+                  The App is a recreational speedometer and data-display tool. It is not designed, tested, or certified for safety-critical or professional use (including but not limited to aviation/avionics, maritime navigation, public transport operations, emergency services, industrial control, or primary vehicle instrumentation).
                 </p>
                 <p className="text-gray-700">
-                  Do not rely on the App for aviation, marine, or vehicular safety-critical functions.
+                  You must not rely on the App where inaccurate readings could cause harm. Always use professionally certified equipment and comply with applicable laws and regulations.
                 </p>
               </div>
 
               <div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">4. User Responsibilities</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">4. User responsibilities</h2>
                 <p className="text-gray-700 mb-4">
                   You agree to:
                 </p>
                 <ul className="text-gray-700 mb-4 list-disc list-inside space-y-2">
-                  <li>Use the App in compliance with applicable laws and traffic rules</li>
-                  <li>Not use the App in a distracting or unsafe manner</li>
-                  <li>Acknowledge that displayed measurements may be affected by hardware limitations or environmental conditions</li>
-                  <li>Accept that the App is not a professional-grade instrument</li>
+                  <li>use the App lawfully and safely and not in a distracting manner;</li>
+                  <li>understand that readings can be affected by hardware limitations, GPS loss, environment, or configuration;</li>
+                  <li>ensure the App is compatible with your device and kept up-to-date.</li>
                 </ul>
               </div>
 
               <div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">5. In-App Purchases & Supporter Tiers</h2>
-                <ul className="text-gray-700 mb-4 list-disc list-inside space-y-2">
-                  <li>All purchases are processed by Apple and managed via RevenueCat</li>
-                  <li>Donations ("Supporter Tiers") are symbolic and non-refundable</li>
-                  <li>Supporter prices may vary depending on your country, currency, and applicable taxes. Apple determines final local pricing through the App Store.</li>
-                  <li>Some features are unlocked through Supporter Tiers, as described in the App</li>
-                </ul>
-              </div>
-
-              <div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">6. Intellectual Property</h2>
-                <p className="text-gray-700">
-                  All content, icons, code, and designs in the App are the exclusive property of Jan Drebes.<br />
-                  You may not copy, modify, reverse-engineer, or redistribute the App without written consent.
-                </p>
-              </div>
-
-              <div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">7. No Warranties</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">5. In-app purchases, supporter tiers & pricing</h2>
                 <p className="text-gray-700 mb-4">
-                  The App is provided "as is" without any guarantees. We make no warranty that:
+                  Purchases/donations are processed by Apple and entitlement management by RevenueCat. We do not receive your payment card details.
                 </p>
-                <ul className="text-gray-700 mb-4 list-disc list-inside space-y-2">
-                  <li>The App will function uninterrupted or error-free</li>
-                  <li>The displayed data is accurate or reliable</li>
-                  <li>The App will meet your specific expectations or purposes</li>
-                </ul>
-              </div>
-
-              <div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">8. Limitation of Liability</h2>
                 <p className="text-gray-700 mb-4">
-                  To the fullest extent permitted by law, we are not liable for:
+                  Supporter tiers may unlock additional features. Tiers are stacked/ascending; availability and exact features are displayed in-app.
                 </p>
-                <ul className="text-gray-700 mb-4 list-disc list-inside space-y-2">
-                  <li>Any indirect, incidental, or consequential damages</li>
-                  <li>Loss of data or device malfunction</li>
-                  <li>Accidents or damage resulting from reliance on the App</li>
-                </ul>
+                <p className="text-gray-700 mb-4">
+                  Prices vary by country/currency/taxes; final local pricing is determined by Apple. Refunds are handled per Apple's policies and any mandatory consumer laws in your country. Unless required by law, donations are not refundable.
+                </p>
                 <p className="text-gray-700">
-                  Maximum liability shall be limited to the amount you paid for the App in the last 12 months.
+                  If subscriptions are offered, they are managed by Apple; you can cancel in iOS Settings before renewal.
                 </p>
               </div>
 
               <div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">9. Indemnification</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">6. Intellectual property</h2>
                 <p className="text-gray-700">
-                  You agree to indemnify and hold harmless Jan Drebes from any claims, losses, or legal actions resulting from misuse of the App or breach of these Terms.
+                  All rights in the App, code, design, graphics, and content are owned by Jan Drebes. You may not copy, modify, reverse engineer, or redistribute without our written permission, except as permitted by mandatory law.
                 </p>
               </div>
 
               <div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">10. App and Terms Modifications</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">7. No warranties</h2>
                 <p className="text-gray-700">
-                  We reserve the right to modify these Terms or the App (including features, pricing, or business model) at any time. Changes take effect upon publication. Continued use of the App after changes constitutes acceptance.
+                  The App is provided "as is" and "as available". We do not warrant that it will be uninterrupted, error-free, or that readings will be accurate for your specific purpose.
                 </p>
               </div>
 
               <div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">11. Termination</h2>
-                <p className="text-gray-700">
-                  You may stop using the App at any time.<br />
-                  We may suspend or revoke your access if you violate these Terms. Upon termination, your right to use the App ends immediately.
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">8. Limitation of liability</h2>
+                <p className="text-gray-700 mb-4">
+                  To the maximum extent permitted by applicable law, we are not liable for indirect, incidental, special, consequential, or punitive damages, or for loss of data. Our total aggregate liability arising out of or relating to the App shall not exceed the amounts you paid within the 12 months preceding the event giving rise to the claim. Nothing in these Terms limits liability that cannot legally be limited (e.g., for intentional misconduct).
                 </p>
               </div>
 
               <div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">12. Jurisdiction and Governing Law</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">9. Indemnity</h2>
                 <p className="text-gray-700">
-                  These Terms are governed by Swiss law. Disputes shall be resolved by the competent courts of Switzerland.
+                  You agree to indemnify and hold Jan Drebes harmless from claims arising from your misuse of the App or breach of these Terms.
                 </p>
               </div>
 
               <div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">13. Severability</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">10. Changes to the App/Terms</h2>
                 <p className="text-gray-700">
-                  If any provision of these Terms is found invalid, the rest remain enforceable.
+                  We may update the App (including features, pricing, supporter tiers) and these Terms at any time. We will post changes on our website and, where required, provide in-app notice. Continued use after changes means you accept the updated Terms.
                 </p>
               </div>
 
               <div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">14. Contact</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">11. Suspension/termination</h2>
                 <p className="text-gray-700">
-                  For questions about these Terms, please contact us at <a href="mailto:support@speedpanels.com" className="text-blue-600 hover:text-blue-800">support@speedpanels.com</a>.
+                  We may suspend or terminate access if you violate these Terms or if required by law or platform rules. You may stop using the App at any time (uninstall).
+                </p>
+              </div>
+
+              <div>
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">12. Governing law & consumer rights</h2>
+                <p className="text-gray-700">
+                  These Terms are governed by Swiss law; courts of Switzerland have jurisdiction. Mandatory consumer protections in your country remain unaffected.
+                </p>
+              </div>
+
+              <div>
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">13. Contact</h2>
+                <p className="text-gray-700">
+                  Jan Drebes — support@speedpanels.com — postal address in Imprint.
                 </p>
               </div>
             </div>

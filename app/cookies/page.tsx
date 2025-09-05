@@ -35,20 +35,20 @@ export default function Cookies() {
             Cookie Policy
           </h1>
           <p className="text-lg text-gray-700 mb-12 text-center">
-            Last updated: July 13, 2025
+            Last updated: September 5, 2025
           </p>
           <div className="bg-white rounded-2xl shadow-xl p-8 mb-8">
             <div className="space-y-8">
               <div>
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">Use of Cookies</h2>
                 <p className="text-gray-700 mb-4">
-                  This website uses only technically necessary cookies to ensure the functionality and security of the site. No tracking or marketing cookies are used.
+                  This website uses only technically necessary cookies that are essential for the functionality and security of the site. We do not use analytics, tracking, or marketing cookies.
                 </p>
               </div>
               <div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">Consent</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">Legal basis</h2>
                 <p className="text-gray-700 mb-4">
-                  By using this website, you agree to the use of these necessary cookies.
+                  Because only strictly necessary cookies are used, no consent is required under applicable data protection and ePrivacy laws. You are simply informed of their use by this notice.
                 </p>
               </div>
             </div>
