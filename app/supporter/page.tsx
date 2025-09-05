@@ -85,6 +85,22 @@ export default function Supporter() {
 
   return (
     <div className="min-h-screen bg-blue-50">
+      <style jsx>{`
+        @keyframes flyOut {
+          0% {
+            left: calc(50% + var(--start-x, 0px));
+            top: calc(50% + var(--start-y, 0px));
+            transform: translate(-50%, -50%) rotate(var(--rotation, 0deg));
+            opacity: 1;
+          }
+          100% {
+            left: calc(50% + var(--end-x, 0px));
+            top: calc(50% + var(--end-y, 0px));
+            transform: translate(-50%, -50%) rotate(var(--rotation, 0deg));
+            opacity: 0;
+          }
+        }
+      `}</style>
       {/* Header */}
       <header className="bg-gradient-to-r from-gray-900 via-blue-900 to-purple-900 shadow-lg relative overflow-hidden">
         {/* Background Pattern */}
@@ -148,9 +164,9 @@ export default function Supporter() {
                 </p>
                 <p className="text-gray-700 mb-6">
                   You can donate directly in the app under:<br />
-                  <strong className="flex items-center gap-1">
+                  <strong className="flex items-center gap-1 flex-wrap">
                     <svg 
-                      className="w-5 h-5 text-gray-700" 
+                      className="w-5 h-5 text-gray-700 flex-shrink-0" 
                       fill="none" 
                       stroke="currentColor" 
                       viewBox="0 0 24 24" 
@@ -169,7 +185,7 @@ export default function Supporter() {
                         d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
                       />
                     </svg>
-                    Panel Settings → Become a Supporter → Donate
+                    <span className="whitespace-nowrap">Panel Settings → Become a Supporter → Donate</span>
                   </strong>
                 </p>
                 <p className="text-gray-700">
@@ -351,10 +367,11 @@ export default function Supporter() {
                       left: `calc(50% + ${emoji.startX}px)`,
                       top: `calc(50% + ${emoji.startY}px)`,
                       transform: `translate(-50%, -50%) rotate(${emoji.rotation}deg)`,
-                      transition: 'all 2s ease-out',
                       opacity: 1,
                       zIndex: 10,
                       animation: isMobile ? 'flyOut 1.3s ease-out forwards' : 'flyOut 2s ease-out forwards',
+                      '--start-x': `${emoji.startX}px`,
+                      '--start-y': `${emoji.startY}px`,
                       '--end-x': `${emoji.endX}px`,
                       '--end-y': `${emoji.endY}px`,
                       '--rotation': `${emoji.rotation}deg`
@@ -364,7 +381,7 @@ export default function Supporter() {
               </div>
             </div>
             
-            <div className="relative z-20">
+            <div className="relative z-20 flex flex-col items-center">
               {/* Heart Button */}
               <button 
                 id="heart-button"
