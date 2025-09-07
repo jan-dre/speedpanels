@@ -398,26 +398,16 @@ export default function Supporter() {
             </div>
           </div>
 
-          {/* My Approach */}
+          {/* My Promise */}
           <div className="bg-white rounded-2xl shadow-xl p-8 mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">My Approach</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">What I Do</h3>
-                <p className="text-gray-700">
-                  I focus on creating an intuitive and useful app that solves real problems. Speed Panels is designed 
-                  to help you monitor your speed with style and ease, whether you're driving, cycling, 
-                  or just curious about your velocity.
-                </p>
-              </div>
-
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">My Philosophy</h3>
-                <p className="text-gray-700">
-                  I believe in a clean, ad-free experience that prioritizes user value. My approach centers on making Speed Panels both practical and enjoyable to use, with premium features available for those who want to support ongoing development.
-                </p>
-              </div>
-            </div>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">My Promise</h2>
+            <p className="text-gray-700 mb-4">
+              I believe in a clean, ad-free app that delivers real value.<br />
+              Speed Panels is built to make your speed experience better every day – stylish, reliable, and distraction-free.
+            </p>
+            <p className="text-gray-800 font-semibold">
+              Thanks for being part of the journey!
+            </p>
           </div>
         </div>
       </section>
