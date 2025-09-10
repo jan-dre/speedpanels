@@ -79,6 +79,21 @@ export default function Changelog() {
             What's New in Speed Panels
           </h1>
 
+          {/* Version 1.0.1 - Update */}
+          <div className="bg-white rounded-2xl shadow-xl p-8 mb-16">
+            <div className="flex items-center mb-4">
+              <span className="text-sm text-gray-600 font-medium">September 8, 2025 • Speed Panels 1.0.1</span>
+            </div>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+              <img src="/Transport emojis/Car 3 Door.svg" alt="Car" className="w-7 h-7 drop-shadow-sm" />
+              Improvements
+            </h2>
+            <ul className="text-gray-700 mb-4 list-disc list-inside space-y-2">
+              <li>Sharing Speed Panels is now simpler, with better text and a link to the website.</li>
+              <li>Leaving a review now opens the app's page in the App Store.</li>
+            </ul>
+          </div>
+
           {/* Version 1.0.0 - Launch */}
           <div className="bg-white rounded-2xl shadow-xl p-8 mb-16">
             <div className="flex items-center mb-4">
