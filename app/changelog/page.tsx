@@ -79,6 +79,38 @@ export default function Changelog() {
             What's New in Speed Panels
           </h1>
 
+          {/* Version 1.1 - Update */}
+          <div className="bg-white rounded-2xl shadow-xl p-8 mb-16">
+            <div className="flex items-center mb-4">
+              <span className="text-sm text-gray-600 font-medium">November 12, 2025 • Speed Panels 1.1</span>
+            </div>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+              <img src="/Transport emojis/Rocket_2.svg" alt="Rocket" className="w-7 h-7 drop-shadow-sm" />
+              Major Update with Colorful and Creative New Features
+            </h2>
+            <ul className="text-gray-700 mb-4 list-disc list-inside space-y-2">
+              <li>Redesigned, more intuitive menu</li>
+              <li>New Background Color options: Solid, Gradient, Vignette, and the new Grain texture</li>
+              <li>New text effects with Shadow and Glow</li>
+              <li>Added preview for background color and text customization</li>
+              <li>Speed Panels is now fully available in German</li>
+            </ul>
+          </div>
+
+          {/* Version 1.0.3 - Update */}
+          <div className="bg-white rounded-2xl shadow-xl p-8 mb-16">
+            <div className="flex items-center mb-4">
+              <span className="text-sm text-gray-600 font-medium">September 15, 2025 • Speed Panels 1.0.3</span>
+            </div>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+              <img src="/Transport emojis/Car 3 Door.svg" alt="Car" className="w-7 h-7 drop-shadow-sm" />
+              Improvements
+            </h2>
+            <ul className="text-gray-700 mb-4 list-disc list-inside space-y-2">
+              <li>Bug fixes and general improvements.</li>
+            </ul>
+          </div>
+
           {/* Version 1.0.1 - Update */}
           <div className="bg-white rounded-2xl shadow-xl p-8 mb-16">
             <div className="flex items-center mb-4">
