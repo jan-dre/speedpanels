@@ -33,21 +33,17 @@ export default function Contact() {
           backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
         }}></div>
         
-        <div className="max-w-3xl mx-auto relative z-10">
+        <div className="max-w-4xl mx-auto relative z-10">
           <h1 className="text-4xl font-bold text-gray-800 mb-8 text-center">
             Contact
           </h1>
-          <p className="text-lg text-gray-700 mb-12 text-center">
-            Have questions, feedback, or just want to say hello? I&apos;d love to hear from you!
-          </p>
 
-          {/* Contact Card */}
-          <div className="bg-white rounded-2xl shadow-xl p-8 mb-8">
+          <div className="bg-white rounded-2xl shadow-xl px-8 py-12 sm:py-14 mb-8">
             <div className="text-center">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Get in Touch</h2>
-              <p className="text-gray-700 mb-8">
-                The best way to reach me is via email. I&apos;m always happy to hear from users 
-                and answer any questions you might have about Speed Panels.
+              <p className="text-gray-700 mb-10">
+                Have questions, feedback, or just want to say hello? I&apos;d love to hear from you!
+                <br />
+                The best way to reach me is via email.
               </p>
 
               <ContactEmailButton email={LEGAL_PUBLISHER.email} />

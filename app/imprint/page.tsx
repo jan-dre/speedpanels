@@ -11,10 +11,7 @@ import { LEGAL_PUBLISHER } from "@/lib/legal";
 export default function Imprint() {
   return (
     <PageLayout>
-      <PageHeading
-        title="Imprint"
-        subtitle="Legal information for the Speed Panels website and iOS app."
-      />
+      <PageHeading title="Imprint" />
 
       <ContentCard>
         <ContentSection title="Publisher">
