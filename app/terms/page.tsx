@@ -1,3 +1,5 @@
+import { LEGAL_PUBLISHER, LEGAL_PUBLISHER_LINE } from "@/lib/legal";
+
 export default function Terms() {
   return (
     <div className="min-h-screen bg-gradient-to-r from-blue-100 to-purple-100">
@@ -52,7 +54,7 @@ export default function Terms() {
               <div>
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">2. Provider & contact</h2>
                 <p className="text-gray-700">
-                  The App ("Speedometer: Speed Panels", short: "Speed Panels") is developed and provided by Jan Drebes, sole proprietor in Switzerland. Contact: support@speedpanels.com (postal address: see Imprint).
+                  The App ("Speedometer: Speed Panels", short: "Speed Panels") is developed and provided by {LEGAL_PUBLISHER_LINE}. Contact: {LEGAL_PUBLISHER.email}.
                 </p>
               </div>
 
@@ -146,7 +148,9 @@ export default function Terms() {
               <div>
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">13. Contact</h2>
                 <p className="text-gray-700">
-                  Jan Drebes — support@speedpanels.com — postal address in Imprint.
+                  <strong>Provider:</strong> {LEGAL_PUBLISHER.name} ({LEGAL_PUBLISHER.role})<br />
+                  <strong>Postal address:</strong> {LEGAL_PUBLISHER.name}, {LEGAL_PUBLISHER.locality}, {LEGAL_PUBLISHER.country}<br />
+                  <strong>Email:</strong> {LEGAL_PUBLISHER.email}
                 </p>
               </div>
             </div>

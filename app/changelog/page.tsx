@@ -1,47 +1,245 @@
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState, useRef, useCallback, useEffect } from "react";
+
+type ChangelogImage = {
+  src: string;
+  alt: string;
+};
+
+type GalleryFormat = "landscape" | "portrait";
+
+function getSlidesPerView(
+  width: number,
+  isPortrait: boolean,
+  imageCount: number
+): number {
+  const minSlideWidth = isPortrait ? 128 : 168;
+  const maxPerRow = isPortrait ? 3 : 3;
+  const fitCount = Math.floor(width / minSlideWidth);
+  return Math.max(1, Math.min(imageCount, maxPerRow, fitCount));
+}
+
+function ChangelogImageGallery({
+  images,
+  format = "landscape",
+}: {
+  images: ChangelogImage[];
+  format?: GalleryFormat;
+}) {
+  const [pageIndex, setPageIndex] = useState(0);
+  const [slidesPerView, setSlidesPerView] = useState(1);
+  const [dragOffset, setDragOffset] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const viewportRef = useRef<HTMLDivElement>(null);
+  const dragStartX = useRef(0);
+
+  const isPortrait = format === "portrait";
+  const pageCount = Math.max(1, Math.ceil(images.length / slidesPerView));
+  const canGoPrev = pageIndex > 0;
+  const canGoNext = pageIndex < pageCount - 1;
+  const needsNavigation = pageCount > 1;
+
+  const goToPage = useCallback(
+    (next: number) => {
+      setPageIndex(Math.max(0, Math.min(pageCount - 1, next)));
+    },
+    [pageCount]
+  );
+
+  const goPrev = () => goToPage(pageIndex - 1);
+  const goNext = () => goToPage(pageIndex + 1);
+
+  useEffect(() => {
+    const viewport = viewportRef.current;
+    if (!viewport) return;
+
+    const updateLayout = () => {
+      const width = viewport.offsetWidth;
+      const nextSpv = getSlidesPerView(width, isPortrait, images.length);
+      setSlidesPerView(nextSpv);
+      setPageIndex((p) => {
+        const maxPage = Math.max(0, Math.ceil(images.length / nextSpv) - 1);
+        return Math.min(p, maxPage);
+      });
+    };
+
+    updateLayout();
+    const observer = new ResizeObserver(updateLayout);
+    observer.observe(viewport);
+    return () => observer.disconnect();
+  }, [images.length, isPortrait]);
+
+  const finishDrag = useCallback(
+    (delta: number) => {
+      const width = viewportRef.current?.offsetWidth ?? 320;
+      const threshold = Math.min(width * 0.12, 56);
+
+      if (delta < -threshold && canGoNext) goToPage(pageIndex + 1);
+      else if (delta > threshold && canGoPrev) goToPage(pageIndex - 1);
+
+      setDragOffset(0);
+      setIsDragging(false);
+    },
+    [canGoNext, canGoPrev, goToPage, pageIndex]
+  );
+
+  const onPointerDown = (e: React.PointerEvent) => {
+    if (e.button !== 0) return;
+    if ((e.target as HTMLElement).closest("[data-carousel-control]")) return;
+
+    dragStartX.current = e.clientX;
+    setIsDragging(true);
+    viewportRef.current?.setPointerCapture(e.pointerId);
+  };
+
+  const onPointerMove = (e: React.PointerEvent) => {
+    if (!isDragging) return;
+    const delta = e.clientX - dragStartX.current;
+    const atStart = pageIndex === 0 && delta > 0;
+    const atEnd = pageIndex === pageCount - 1 && delta < 0;
+    setDragOffset(atStart || atEnd ? delta * 0.35 : delta);
+  };
+
+  const onPointerUp = (e: React.PointerEvent) => {
+    if (!isDragging) return;
+    viewportRef.current?.releasePointerCapture(e.pointerId);
+    finishDrag(e.clientX - dragStartX.current);
+  };
+
+  const onPointerCancel = () => {
+    if (!isDragging) return;
+    finishDrag(0);
+  };
+
+  useEffect(() => {
+    if (!needsNavigation) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") setPageIndex((p) => Math.max(0, p - 1));
+      if (e.key === "ArrowRight") setPageIndex((p) => Math.min(pageCount - 1, p + 1));
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [needsNavigation, pageCount]);
+
+  const maxImageHeight = isPortrait ? "min(68vh, 480px)" : "min(48vh, 360px)";
+  const pageShiftPercent = (slidesPerView / images.length) * 100;
+
+  return (
+    <div
+      className="mt-8"
+      role="region"
+      aria-roledescription="carousel"
+      aria-label="App screenshots"
+    >
+      <div
+        className={`flex items-center ${needsNavigation ? "gap-2 sm:gap-3" : ""}`}
+      >
+        {needsNavigation && (
+          <button
+            type="button"
+            data-carousel-control
+            onClick={goPrev}
+            disabled={!canGoPrev}
+            className="flex h-9 w-9 sm:h-10 sm:w-10 flex-shrink-0 items-center justify-center rounded-full bg-neutral-100 text-neutral-800 ring-1 ring-black/[0.06] transition hover:bg-neutral-200 active:scale-95 disabled:pointer-events-none disabled:opacity-0"
+            aria-label="Previous screenshots"
+          >
+            <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+        )}
+
+        <div
+          ref={viewportRef}
+          className="min-w-0 flex-1 overflow-hidden rounded-2xl bg-white cursor-grab active:cursor-grabbing"
+          style={{ touchAction: "none" }}
+          onPointerDown={onPointerDown}
+          onPointerMove={onPointerMove}
+          onPointerUp={onPointerUp}
+          onPointerCancel={onPointerCancel}
+        >
+          <div
+            className={`flex py-5 sm:py-6 ${isDragging ? "" : "transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]"}`}
+            style={{
+              width: `${(images.length / slidesPerView) * 100}%`,
+              transform: `translateX(calc(-${pageIndex * pageShiftPercent}% + ${dragOffset}px))`,
+            }}
+          >
+            {images.map((image) => (
+              <div
+                key={image.src}
+                className="box-border flex flex-shrink-0 items-center justify-center px-2 sm:px-3"
+                style={{ width: `${100 / images.length}%` }}
+              >
+                <div className="inline-block max-w-full overflow-hidden rounded-[1.25rem] ring-1 ring-black/[0.06]">
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    draggable={false}
+                    className="block h-auto w-auto max-w-full object-contain"
+                    style={{ maxHeight: maxImageHeight }}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {needsNavigation && (
+          <button
+            type="button"
+            data-carousel-control
+            onClick={goNext}
+            disabled={!canGoNext}
+            className="flex h-9 w-9 sm:h-10 sm:w-10 flex-shrink-0 items-center justify-center rounded-full bg-neutral-100 text-neutral-800 ring-1 ring-black/[0.06] transition hover:bg-neutral-200 active:scale-95 disabled:pointer-events-none disabled:opacity-0"
+            aria-label="Next screenshots"
+          >
+            <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        )}
+      </div>
+
+      {needsNavigation && (
+        <div className="mt-4 flex items-center justify-center gap-2">
+          {Array.from({ length: pageCount }).map((_, i) => (
+            <button
+              key={i}
+              type="button"
+              data-carousel-control
+              onClick={() => goToPage(i)}
+              className={`h-2 rounded-full transition-all duration-300 ${
+                i === pageIndex
+                  ? "w-6 bg-neutral-800"
+                  : "w-2 bg-neutral-300 hover:bg-neutral-400"
+              }`}
+              aria-label={`Page ${i + 1} of ${pageCount}`}
+              aria-current={i === pageIndex ? "true" : undefined}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function Changelog() {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [windowWidth, setWindowWidth] = useState(1024); // Default value for SSR
-  
-  const images = [
-    { src: "/Webseite_124kmh.png", alt: "Speed Panels - 124 km/h Display", description: "Real-time speed monitoring at 124 km/h" },
-    { src: "/Webseite_bottom_values.png", alt: "Speed Panels - Bottom Values", description: "Detailed bottom panel with additional metrics" },
-    { src: "/Webseite_65knots.png", alt: "Speed Panels - 65 Knots Display", description: "Speed display in knots unit" },
-    { src: "/Webseite_colorpicker.png", alt: "Speed Panels - Color Picker", description: "Customizable color picker interface" },
-    { src: "/Webseite_statistics_dark.png", alt: "Speed Panels - Dark Statistics", description: "Statistics view in dark mode" },
-    { src: "/Webseite_map.png", alt: "Speed Panels - Map View", description: "Interactive map with route tracking" }
+  const launchImages: ChangelogImage[] = [
+    { src: "/Webseite_124kmh.png", alt: "Speed Panels - 124 km/h Display" },
+    { src: "/Webseite_bottom_values.png", alt: "Speed Panels - Bottom Values" },
+    { src: "/Webseite_65knots.png", alt: "Speed Panels - 65 Knots Display" },
+    { src: "/Webseite_colorpicker.png", alt: "Speed Panels - Color Picker" },
+    { src: "/Webseite_statistics_dark.png", alt: "Speed Panels - Dark Statistics" },
+    { src: "/Webseite_map.png", alt: "Speed Panels - Map View" },
   ];
 
-  const nextImage = () => {
-    if (currentImageIndex < images.length - 1) {
-      setCurrentImageIndex(currentImageIndex + 1);
-    }
-  };
-
-  const prevImage = () => {
-    if (currentImageIndex > 0) {
-      setCurrentImageIndex(currentImageIndex - 1);
-    }
-  };
-
-  const goToImage = (index: number) => {
-    setCurrentImageIndex(index);
-  };
-
-  // Set window width after component mounts (client-side only)
-  useEffect(() => {
-    setWindowWidth(window.innerWidth);
-    
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-    
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  const version11Images: ChangelogImage[] = [
+    { src: "/Portrait_Settings_BackgroundColor.jpg", alt: "Speed Panels - Background color settings" },
+    { src: "/Portrait_SpeedPanel_Green_mph.jpg", alt: "Speed Panels - Green speed panel in mph" },
+    { src: "/Portrait_SpeedPanel_White_mph.jpg", alt: "Speed Panels - White speed panel in mph" },
+  ];
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-blue-100 to-purple-100">
@@ -80,7 +278,7 @@ export default function Changelog() {
           </h1>
 
           {/* Version 1.1.1 - Update */}
-          <div className="bg-white rounded-2xl shadow-xl p-8 mb-16">
+          <div className="bg-white rounded-2xl shadow-sm ring-1 ring-black/[0.04] p-8 mb-16">
             <div className="flex items-center mb-4">
               <span className="text-sm text-gray-600 font-medium">February 9, 2026 • Speed Panels 1.1.1</span>
             </div>
@@ -94,7 +292,7 @@ export default function Changelog() {
           </div>
 
           {/* Version 1.1 - Update */}
-          <div className="bg-white rounded-2xl shadow-xl p-8 mb-16">
+          <div className="bg-white rounded-2xl shadow-sm ring-1 ring-black/[0.04] p-8 mb-16">
             <div className="flex items-center mb-4">
               <span className="text-sm text-gray-600 font-medium">November 12, 2025 • Speed Panels 1.1</span>
             </div>
@@ -109,10 +307,11 @@ export default function Changelog() {
               <li>Added preview for background color and text customization</li>
               <li>Speed Panels is now fully available in German</li>
             </ul>
+            <ChangelogImageGallery images={version11Images} format="portrait" />
           </div>
 
           {/* Version 1.0.3 - Update */}
-          <div className="bg-white rounded-2xl shadow-xl p-8 mb-16">
+          <div className="bg-white rounded-2xl shadow-sm ring-1 ring-black/[0.04] p-8 mb-16">
             <div className="flex items-center mb-4">
               <span className="text-sm text-gray-600 font-medium">September 15, 2025 • Speed Panels 1.0.3</span>
             </div>
@@ -126,7 +325,7 @@ export default function Changelog() {
           </div>
 
           {/* Version 1.0.1 - Update */}
-          <div className="bg-white rounded-2xl shadow-xl p-8 mb-16">
+          <div className="bg-white rounded-2xl shadow-sm ring-1 ring-black/[0.04] p-8 mb-16">
             <div className="flex items-center mb-4">
               <span className="text-sm text-gray-600 font-medium">September 8, 2025 • Speed Panels 1.0.1</span>
             </div>
@@ -141,7 +340,7 @@ export default function Changelog() {
           </div>
 
           {/* Version 1.0.0 - Launch */}
-          <div className="bg-white rounded-2xl shadow-xl p-8 mb-16">
+          <div className="bg-white rounded-2xl shadow-sm ring-1 ring-black/[0.04] p-8 mb-16">
             <div className="flex items-center mb-4">
               <span className="text-sm text-gray-600 font-medium">September 6, 2025 • Speed Panels 1.0</span>
             </div>
@@ -175,66 +374,7 @@ export default function Changelog() {
             <p className="text-gray-700 mb-4">
               Download Speed Panels today and start monitoring your speed with style!
             </p>
-          </div>
-
-          {/* Image Gallery - Responsive Design */}
-          <div className="mt-8">
-            {/* Desktop Version - Original with Navigation */}
-            <div className="hidden md:block">
-              <div className="grid grid-cols-6 gap-85 transition-transform duration-500" style={{
-                transform: `translateX(-${currentImageIndex * (windowWidth < 768 ? 80 : 40)}%)`
-              }}>
-                {images.map((image, index) => (
-                  <div key={index} className="border-2 border-gray-200 rounded-2xl overflow-hidden bg-gray-50 shadow-lg aspect-square min-h-80">
-                    <img 
-                      src={image.src}
-                      alt={image.alt}
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                ))}
-              </div>
-              
-              {/* Desktop Navigation Arrows */}
-              <div className="flex justify-start items-center space-x-8 mt-8 ml-12">
-                <button 
-                  onClick={prevImage}
-                  className="bg-white hover:bg-gray-100 text-gray-800 rounded-full p-4 shadow-lg transition-all duration-200 hover:scale-110 border border-gray-200"
-                  aria-label="Previous image"
-                >
-                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                  </svg>
-                </button>
-                
-                <button 
-                  onClick={nextImage}
-                  className="bg-white hover:bg-gray-100 text-gray-800 rounded-full p-4 shadow-lg transition-all duration-200 hover:scale-110 border border-gray-200"
-                  aria-label="Next image"
-                >
-                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-
-            {/* Mobile Version - Touch Scroll */}
-            <div className="md:hidden">
-              <div className="overflow-x-auto scrollbar-hide bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-4">
-                <div className="flex space-x-4 min-w-max">
-                  {images.map((image, index) => (
-                    <div key={index} className="flex-shrink-0 border-2 border-gray-200 rounded-2xl overflow-hidden bg-white shadow-lg" style={{ width: '280px', height: '280px' }}>
-                      <img 
-                        src={image.src}
-                        alt={image.alt}
-                        className="w-full h-full object-contain p-2"
-                      />
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
+            <ChangelogImageGallery images={launchImages} format="landscape" />
           </div>
         </div>
       </section>

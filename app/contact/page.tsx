@@ -1,3 +1,6 @@
+import { ContactEmailButton } from "@/components/PageLayout";
+import { LEGAL_PUBLISHER } from "@/lib/legal";
+
 export default function Contact() {
   return (
     <div className="min-h-screen bg-gradient-to-r from-blue-100 to-purple-100">
@@ -35,7 +38,7 @@ export default function Contact() {
             Contact
           </h1>
           <p className="text-lg text-gray-700 mb-12 text-center">
-            Have questions, feedback, or just want to say hello? I'd love to hear from you!
+            Have questions, feedback, or just want to say hello? I&apos;d love to hear from you!
           </p>
 
           {/* Contact Card */}
@@ -43,27 +46,15 @@ export default function Contact() {
             <div className="text-center">
               <h2 className="text-2xl font-bold text-gray-900 mb-6">Get in Touch</h2>
               <p className="text-gray-700 mb-8">
-                The best way to reach me is via email. I'm always happy to hear from users 
+                The best way to reach me is via email. I&apos;m always happy to hear from users 
                 and answer any questions you might have about Speed Panels.
               </p>
 
-              {/* Email Section - Highlighted */}
-                <a 
-                    href="mailto:support@speedpanels.com" 
-                    className="inline-flex items-center bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 sm:px-6 md:px-8 py-3 sm:py-4 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200 text-sm sm:text-base md:text-xl hover:from-blue-700 hover:to-purple-700 break-all"
-                  >
-                  <svg className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 mr-2 sm:mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
-                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
-                  </svg>
-                  <span className="text-center">support@speedpanels.com</span>
-                </a>
+              <ContactEmailButton email={LEGAL_PUBLISHER.email} />
             </div>
           </div>
-
-
         </div>
       </section>
     </div>
   );
-} 
+}

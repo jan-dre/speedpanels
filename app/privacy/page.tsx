@@ -1,3 +1,5 @@
+import { LEGAL_PUBLISHER, LEGAL_PUBLISHER_LINE } from "@/lib/legal";
+
 export default function Privacy() {
   return (
     <div className="min-h-screen bg-gradient-to-r from-blue-100 to-purple-100">
@@ -45,7 +47,7 @@ export default function Privacy() {
               <div>
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">1. Who we are</h2>
                 <p className="text-gray-700 mb-4">
-                  Speedometer: Speed Panels (hereinafter "Speed Panels") is an iOS app published by Jan Drebes (sole proprietor) based in Switzerland ("we", "us", "our"). For contact details, see Imprint on our website or email support@speedpanels.com.
+                  Speedometer: Speed Panels (hereinafter "Speed Panels") is an iOS app published by {LEGAL_PUBLISHER_LINE} ("we", "us", "our"). Contact: {LEGAL_PUBLISHER.email}.
                 </p>
                 <p className="text-gray-700 mb-4">
                   For the purposes of data protection laws (e.g., GDPR/UK GDPR), we act as the data controller for processing we determine. For in-app purchases, Apple and RevenueCat process certain data independently—see Third-Party Services.
@@ -163,9 +165,9 @@ export default function Privacy() {
               <div>
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">14. Contact</h2>
                 <p className="text-gray-700">
-                  <strong>Controller:</strong> Jan Drebes (sole proprietor), Switzerland<br />
-                  <strong>Email:</strong> support@speedpanels.com<br />
-                  <strong>Postal address:</strong> see Imprint on our website.
+                  <strong>Controller:</strong> {LEGAL_PUBLISHER.name} ({LEGAL_PUBLISHER.role})<br />
+                  <strong>Postal address:</strong> {LEGAL_PUBLISHER.name}, {LEGAL_PUBLISHER.locality}, {LEGAL_PUBLISHER.country}<br />
+                  <strong>Email:</strong> {LEGAL_PUBLISHER.email}
                 </p>
               </div>
             </div>
